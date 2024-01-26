@@ -1,5 +1,6 @@
 import React from 'react'
 import "../assets/css/signUp.css";
+import {Link} from 'react-router-dom';
 
 export default function SignUp() {
   return (
@@ -30,7 +31,7 @@ export default function SignUp() {
                         height="75"
                         rx="20"
                         fill="url(#paint0_linear_580_2363)"
-                        fill-opacity="0.1"
+                        fillOpacity="0.1"
                       />
                       <rect
                         x="1"
@@ -39,10 +40,10 @@ export default function SignUp() {
                         height="77"
                         rx="21"
                         stroke="url(#paint1_radial_580_2363)"
-                        stroke-width="2"
+                        strokeWidth="2"
                       />
                     </g>
-                    <g clip-path="url(#clip0_580_2363)">
+                    <g clipPath="url(#clip0_580_2363)">
                       <path
                         d="M52.4163 40C52.4163 32.87 46.6297 27.0833 39.4997 27.0833C32.3697 27.0833 26.583 32.87 26.583 40C26.583 46.2516 31.0263 51.4571 36.9163 52.6583V43.875H34.333V40H36.9163V36.7708C36.9163 34.2779 38.9443 32.25 41.4372 32.25H44.6663V36.125H42.083C41.3726 36.125 40.7913 36.7062 40.7913 37.4166V40H44.6663V43.875H40.7913V52.8521C47.3143 52.2062 52.4163 46.7037 52.4163 40Z"
                         fill="white"
@@ -56,10 +57,10 @@ export default function SignUp() {
                         width="163"
                         height="163"
                         filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
+                        colorInterpolationFilters="sRGB"
                       >
                         <feFlood
-                          flood-opacity="0"
+                          floodOpacity="0"
                           result="BackgroundImageFix"
                         />
                         <feGaussianBlur
@@ -88,13 +89,13 @@ export default function SignUp() {
                       >
                         <stop
                           offset="0.0001"
-                          stop-color="white"
-                          stop-opacity="0"
+                          stopColor="white"
+                          stopOpacity="0"
                         />
                         <stop
                           offset="1"
-                          stop-color="white"
-                          stop-opacity="0.39"
+                          stopColor="white"
+                          stopOpacity="0.39"
                         />
                       </linearGradient>
                       <radialGradient
@@ -105,8 +106,8 @@ export default function SignUp() {
                         gradientUnits="userSpaceOnUse"
                         gradientTransform="translate(39.5 40) rotate(-132.581) scale(70.7181 54.8602)"
                       >
-                        <stop stop-color="white" />
-                        <stop offset="1" stop-color="white" stop-opacity="0" />
+                        <stop stopColor="white" />
+                        <stop offset="1" stopColor="white" stopOpacity="0" />
                       </radialGradient>
                       <clipPath id="clip0_580_2363">
                         <rect
@@ -135,7 +136,7 @@ export default function SignUp() {
                         height="75"
                         rx="20"
                         fill="url(#paint0_linear_580_2363)"
-                        fill-opacity="0.1"
+                        fillOpacity="0.1"
                       />
                       <rect
                         x="1"
@@ -144,7 +145,7 @@ export default function SignUp() {
                         height="77"
                         rx="21"
                         stroke="url(#paint1_radial_580_2363)"
-                        stroke-width="2"
+                        strokeWidth="2"
                       />
                     </g>
                     <path
@@ -163,10 +164,10 @@ export default function SignUp() {
                         width="163"
                         height="163"
                         filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
+                        colorInterpolationFilters="sRGB"
                       >
                         <feFlood
-                          flood-opacity="0"
+                          floodOpacity="0"
                           result="BackgroundImageFix"
                         />
                         <feGaussianBlur
@@ -195,13 +196,13 @@ export default function SignUp() {
                       >
                         <stop
                           offset="0.0001"
-                          stop-color="white"
-                          stop-opacity="0"
+                          stopColor="white"
+                          stopOpacity="0"
                         />
                         <stop
                           offset="1"
-                          stop-color="white"
-                          stop-opacity="0.39"
+                          stopColor="white"
+                          stopOpacity="0.39"
                         />
                       </linearGradient>
                       <radialGradient
@@ -212,8 +213,8 @@ export default function SignUp() {
                         gradientUnits="userSpaceOnUse"
                         gradientTransform="translate(39.5 40) rotate(-132.581) scale(70.7181 54.8602)"
                       >
-                        <stop stop-color="white" />
-                        <stop offset="1" stop-color="white" stop-opacity="0" />
+                        <stop stopColor="white" />
+                        <stop offset="1" stopColor="white" stopOpacity="0" />
                       </radialGradient>
                     </defs>
                   </svg>
@@ -234,7 +235,7 @@ export default function SignUp() {
                         height="75"
                         rx="20"
                         fill="url(#paint0_linear_580_2363)"
-                        fill-opacity="0.1"
+                        fillOpacity="0.1"
                       />
                       <rect
                         x="1"
@@ -243,7 +244,7 @@ export default function SignUp() {
                         height="77"
                         rx="21"
                         stroke="url(#paint1_radial_580_2363)"
-                        stroke-width="2"
+                        strokeWidth="2"
                       />
                     </g>
                     <path
@@ -258,10 +259,10 @@ export default function SignUp() {
                         width="163"
                         height="163"
                         filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
+                        colorInterpolationFilters="sRGB"
                       >
                         <feFlood
-                          flood-opacity="0"
+                          floodOpacity="0"
                           result="BackgroundImageFix"
                         />
                         <feGaussianBlur
@@ -290,13 +291,13 @@ export default function SignUp() {
                       >
                         <stop
                           offset="0.0001"
-                          stop-color="white"
-                          stop-opacity="0"
+                          stopColor="white"
+                          stopOpacity="0"
                         />
                         <stop
                           offset="1"
-                          stop-color="white"
-                          stop-opacity="0.39"
+                          stopColor="white"
+                          stopOpacity="0.39"
                         />
                       </linearGradient>
                       <radialGradient
@@ -307,8 +308,8 @@ export default function SignUp() {
                         gradientUnits="userSpaceOnUse"
                         gradientTransform="translate(39.5 40) rotate(-132.581) scale(70.7181 54.8602)"
                       >
-                        <stop stop-color="white" />
-                        <stop offset="1" stop-color="white" stop-opacity="0" />
+                        <stop stopColor="white" />
+                        <stop offset="1" stopColor="white" stopOpacity="0" />
                       </radialGradient>
                     </defs>
                   </svg>
@@ -337,7 +338,7 @@ export default function SignUp() {
                 <button>SIGN UP</button>
                 </div>
                 <div className="signIn">
-                <p>Already have an account? <a href="/">Sign In</a></p>
+                <p>Already have an account? <Link to="/signIn">Sign In</Link></p>
                 </div>
               </div>
               <p>

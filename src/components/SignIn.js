@@ -1,5 +1,6 @@
 import React from "react";
 import "../assets/css/signIn.css";
+import {Link} from "react-router-dom";
 
 export default function SignIn(props) {
 
@@ -34,7 +35,7 @@ export default function SignIn(props) {
           </div>
           <div className="form-footer">
             <p>
-              Don't have an account? <a href="/" onClick={handleSignUp}>Sign up</a>
+              Don't have an account? <Link to="/signUp">Sign up</Link>
             </p>
           </div>
         </div>

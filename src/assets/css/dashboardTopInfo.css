@@ -1,0 +1,60 @@
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    border-radius: 20px;
+    background: linear-gradient(127deg, rgba(6, 11, 38, 0.74) 28.26%, rgba(26, 31, 55, 0.50) 91.2%);
+    backdrop-filter: blur(60px);
+    margin-inline: 10px;
+    padding-inline: 20px;
+
+    .left-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: start;
+
+        p {
+            color: var(--Gray-Gray-400, #A0AEC0);
+            font-family: "Plus Jakarta Display";
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 100%;
+            /* 12px */
+        }
+
+        .info-stats {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            h1 {
+                color: #FFF;
+                font-family: "Plus Jakarta Display";
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 140%;
+                /* 25.2px */
+            }
+
+            h3 {
+                color: var(--primary-green-500-success-color, #01B574);
+                font-family: "Plus Jakarta Display";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                /* line-height: 140%; */
+                /* 19.6px */
+            }
+        }
+
+    }
+    .right-info{
+        /* padding: 20px; */
+        /* margin: 20px; */
+    }
+
+}
