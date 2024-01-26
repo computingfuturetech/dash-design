@@ -1,0 +1,133 @@
+.contents {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 40px;
+}
+
+.signInform {
+    width: 100%;
+    padding: 40px;
+    /* height: 100%; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+
+}
+
+.signInform h1 {
+    color: #FFF;
+    font-family: "Plus Jakarta Display";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    /* 39px */
+}
+
+.signInform p {
+    color: var(--Gray-Gray-400, #A0AEC0);
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    /* 19.6px */
+}
+
+/* .signInform .form {
+    padding: 20px;
+
+} */
+
+.signInform .form label {
+    color: #FFF;
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+
+}
+
+.signInform .form input {
+    display: flex;
+    /* width: 350px; */
+    width: 85%;
+    height: 50px;
+    padding: 0px 20px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 2px solid #A0AEC0;
+    background: linear-gradient(124deg, rgba(255, 255, 255, 0.00) -22.38%, rgba(255, 255, 255, 0.04) 70.38%);
+    backdrop-filter: blur(21px);
+    /* margin-bottom: 10px; */
+    margin-block: 5px 15px;
+}
+
+.signInform .form .form-btn {
+    width: 100%;
+    /* width: 350px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signInform .form .form-btn button {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    /* width: 350px; */
+    height: 45px;
+    padding: 0px 8px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #0075FF;
+    backdrop-filter: blur(60px);
+    border: none;
+    color: var(--black-amp-white-white, #FFF);
+    text-align: center;
+    font-family: "Plus Jakarta Display";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    /* 15px */
+
+}
+
+.signInform .form .form-btn button:hover {
+    background: #0064E6;
+}
+
+.signInform .form .form-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.signInform .form .form-footer p {
+    color: #A0AEC0;
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+.signInform .form .form-footer a {
+    color: #FFF;
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+
+}
