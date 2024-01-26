@@ -1,0 +1,290 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* background-color: rgba(0, 103, 194, 0.616); */
+    /* width: 100vw; */
+    position: absolute;
+    z-index: 99;
+    padding: 0%;
+    margin: 0%;
+}
+
+.container .left {
+    width: 50%;
+    height: 100%;
+    background-image: url('../images/authBack.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container .left h1 {
+    color: #FFF;
+    text-align: center;
+    font-family: "Plus Jakarta Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    /* 20px */
+    letter-spacing: 3.6px;
+}
+
+.container .left h2 {
+    text-align: center;
+    font-family: "Plus Jakarta Display";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    /* 36px */
+    letter-spacing: 6.48px;
+    background: linear-gradient(95deg, #FFF 79.99%, #21242F 102.65%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container .right {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(159deg, #0F123B 14.25%, #090D2E 56.45%, #020515 86.14%);
+}
+
+.container .right .content {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 40px;
+    /* border: 1px solid white */
+}
+
+.container .right .content .greetings h1 {
+    color: #FFF;
+    font-family: "Plus Jakarta Display";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    text-align: center;
+    /* 39px */
+}
+
+.container .right .content .greetings p {
+    color: var(--Secondary-Primary-White, #FFF);
+    text-align: center;
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.container .right .content .form {
+    border: 2px solid #FFF;
+    border-radius: 20px;
+    
+    padding: 20px;
+
+    /* width: 452.5px;
+height: 713.5px;
+flex-shrink: 0;
+    fill: linear-gradient(124deg, rgba(255, 255, 255, 0.00) -22.71%, rgba(255, 255, 255, 0.04) 70.04%);
+    stroke-width: 2px;
+    stroke: #FFF;
+    backdrop-filter: blur(21px); */
+
+}
+
+.container .right .content h1 {
+    color: #FFF;
+    text-align: center;
+    font-family: "Plus Jakarta Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    /* 23.4px */
+
+}
+
+.container .right .content p {
+    color: var(--Secondary-Primary-White, #FFF);
+    text-align: center;
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.container .right .content .form .social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .right .content .form .social a {
+    text-decoration: none;
+    color: #FFF;
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+    margin-inline: 5px;
+}
+
+.container .right .content .form .or {
+    color: var(--Gray-Gray-400, #A0AEC0);
+    text-align: center;
+    font-family: "Plus Jakarta Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    /* 25.2px */
+}
+
+.container .right .content .form .form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+}
+
+.container .right .content .form .form-content label {
+    color: #FFF;
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    /* 19.6px */
+}
+
+.container .right .content .form .form-content input {
+    display: flex;
+    width: 350px;
+    height: 50px;
+    padding: 0px 20px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 2px solid #A0AEC0;
+    background: linear-gradient(124deg, rgba(255, 255, 255, 0.00) -22.38%, rgba(255, 255, 255, 0.04) 70.38%);
+    backdrop-filter: blur(21px);
+    /* margin-bottom: 10px; */
+    margin-block: 5px 15px;
+}
+
+.container .right .content .form .form-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container .right .content .form .form-btn button {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    /* width: 350px; */
+    height: 45px;
+    padding: 0px 8px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #0075FF;
+    backdrop-filter: blur(60px);
+    border: none;
+    color: var(--black-amp-white-white, #FFF);
+    text-align: center;
+    font-family: "Plus Jakarta Display";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    /* 15px */
+
+}
+
+/* .container .right .content .form .signIn{
+    
+} */
+.container .right .content .form .signIn p {
+    color: var(--Gray-Gray-400, #A0AEC0);
+    text-align: center;
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    /* 19.6px */
+
+}
+
+.container .right .content .form .signIn a {
+    margin-inline: 5px;
+    text-decoration: none;
+    color: var(--Secondary-Primary-White, #FFF);
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    cursor: pointer;
+}
+
+.container .right .content .form .signIn a:hover {
+    color: #0075FF;
+}
+
+.container .right .content p {
+    color: #A0AEC0;
+    text-align: center;
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 21px */
+}
+
+.container .right .content .links {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.container .right .content .links a {
+    color: #A0AEC0;
+    font-family: "Plus Jakarta Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration: none;
+    /* 21px */
+}
