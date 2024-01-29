@@ -1,19 +1,10 @@
 @import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/plus-jakarta-display.min.css");
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
-    background-color: rgb(0, 93, 175);
-    height: 20px;
-    width: 100vw;
-
-}
-
 nav {
     position: fixed;
     top: 0;
+    left: 20%;
+    right: 20%;
     margin-top: 40px;
     display: flex;
     width: 50vw;
@@ -26,92 +17,91 @@ nav {
     border: 2px solid #FFF;
     background: linear-gradient(124deg, rgba(255, 255, 255, 0.00) -22.38%, rgba(255, 255, 255, 0.04) 70.38%);
     backdrop-filter: blur(21px);
-}
 
-nav .logo {
-    font-family: "Plus Jakarta Display";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%;
-    /* 14px */
-    letter-spacing: 2.52px;
-    background: linear-gradient(98deg, #FFF 70.67%, rgba(117, 122, 140, 0.00) 108.55%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+    .logo {
+        font-family: "Plus Jakarta Display";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+        /* 14px */
+        letter-spacing: 2.52px;
+        background: linear-gradient(98deg, #FFF 70.67%, rgba(117, 122, 140, 0.00) 108.55%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 
-nav .logo a {
-    text-decoration: none;
-}
+        a {
+            text-decoration: none;
+        }
+    }
 
-nav ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    width: 50%;
-}
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        width: 50%;
 
-nav ul li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
-    cursor: pointer;
-}
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            cursor: pointer;
 
+            a {
+                text-decoration: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* color: #282c34; */
+                color: #fff;
+                text-align: center;
+                font-family: "Plus Jakarta Display";
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 150%;
 
-nav ul li a {
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* color: #282c34; */
-    color: #fff;
-    text-align: center;
-    font-family: "Plus Jakarta Display";
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-    /* 15px */
-}
+                /* 15px */
+                svg {
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
 
-nav ul li a svg {
-    margin-right: 3px;
-}
+    .right-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15%;
+        height: 100%;
 
-nav .right-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15%;
-    height: 100%;
-}
+        button {
+            display: flex;
+            width: 90%;
+            height: 40px;
+            padding: 0px 8px;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            border-radius: 12px;
+            background: #0075FF;
+            backdrop-filter: blur(60px);
+            color: #FFF;
+            text-align: center;
+            font-family: "Plus Jakarta Display";
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 150%;
+            border: none;
+            cursor: pointer;
 
-nav .right-section button {
-    display: flex;
-    width: 90%;
-    height: 40px;
-    padding: 0px 8px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 12px;
-    background: #0075FF;
-    backdrop-filter: blur(60px);
-    color: #FFF;
-    text-align: center;
-    font-family: "Plus Jakarta Display";
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-    border: none;
-    cursor: pointer;
-
+        }
+    }
 }

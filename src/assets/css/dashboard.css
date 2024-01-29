@@ -1,5 +1,45 @@
-*{
-    background-image: url(../images/background.png);
+.main-container {
+    background: url(../images/background.png), #061b44 50% / cover no-repeat;
+    /* filter: blur(136px); */
     padding: 0;
     margin: 0;
+    width: 100vw;
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    /* .left-nav{ */
+        /* width: 15%; */
+        /* background-color: aliceblue; */
+    /* } */
+    .topInfo-section{
+        margin-left: 270px;
+        width: 85%;
+        margin-top: 100px;
+        ul{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            li{
+                margin-top: 10px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                /* margin-inline: 20px; */
+                
+            }
+        }
+    }
+    .second-section{
+        margin-left: 270px;
+        width: 85%;
+        margin-top: 20px;
+    }
 }

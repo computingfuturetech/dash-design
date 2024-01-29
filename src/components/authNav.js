@@ -1,21 +1,22 @@
 import React from "react";
 import Logo from "../assets/images/Logo.png";
 import "../assets/css/authNav.css";
+import { Link } from "react-router-dom";
 
 export default function AuthNav() {
   return (
     <>
-      {/* <div className="container"> */}
+      <div className="signUpNav">
         <nav>
           <div className="logo">
-            <a href="/">
+            <Link to="/">
               <img src={Logo} alt="Logo" />
-            </a>
+            </Link>
           </div>
           <div className="middle-section">
             <ul>
               <li>
-                <a href="/">
+                <Link to="/">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -49,10 +50,10 @@ export default function AuthNav() {
                     </defs>
                   </svg>
                   DASHBOARD
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">
+                <Link to="/">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -82,10 +83,10 @@ export default function AuthNav() {
                     </defs>
                   </svg>
                   PROFILE
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">
+                <Link to="/">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -99,10 +100,10 @@ export default function AuthNav() {
                     />
                   </svg>
                   SIGNUP
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">
+                <Link to="/">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -116,7 +117,7 @@ export default function AuthNav() {
                     />
                   </svg>
                   SIGNIN
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -124,7 +125,7 @@ export default function AuthNav() {
             <button>Free Download</button>
           </div>
         </nav>
-      {/* </div> */}
+      </div>
     </>
   );
 }
