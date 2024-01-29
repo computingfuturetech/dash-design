@@ -7,15 +7,16 @@
 
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
     align-items: start;
     /* .left-nav{ */
         /* width: 15%; */
         /* background-color: aliceblue; */
     /* } */
-    .right-section{
-        margin-left: 180px;
-        width: 80%;
+    .topInfo-section{
+        margin-left: 270px;
+        width: 85%;
         margin-top: 100px;
         ul{
             display: flex;
@@ -32,7 +33,13 @@
                 justify-content: space-between;
                 align-items: center;
                 /* margin-inline: 20px; */
+                
             }
         }
+    }
+    .second-section{
+        margin-left: 270px;
+        width: 85%;
+        margin-top: 20px;
     }
 }
