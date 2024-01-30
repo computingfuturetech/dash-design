@@ -4,6 +4,7 @@ import "../../assets/css/dashboard.css";
 import DashboardTopNav from "../../components/dashboardtopNav";
 import DashboardTopInfo from "../../components/dashboardTopInfo";
 import DashboardSecondSection from "../../components/dashboardSecondSection";
+import DashboardThirdSection from "../../components/dashboardThirdSection";
 
 export default function Dashboard() {
   return (
@@ -19,7 +20,7 @@ export default function Dashboard() {
           <li>
             <DashboardTopInfo
               title={`Today's Money`}
-              amount={`$53,000`}
+              amount={`$ 53,000`}
               change={`+55%`}
               icon={
                 <svg
@@ -201,7 +202,7 @@ export default function Dashboard() {
             <li>
             <DashboardTopInfo
               title={`New Clients`}
-              amount={`+3,052`}
+              amount={`+ 3,052`}
               change={`+14%`}
               icon={
                 <svg
@@ -276,7 +277,7 @@ export default function Dashboard() {
             <li>
             <DashboardTopInfo
               title={`Total Sales`}
-              amount={`&173,000`}
+              amount={`$ 173,000`}
               change={`+8%`}
               icon={
                 <svg
@@ -353,6 +354,9 @@ export default function Dashboard() {
       </div>
       <div className="second-section">
         <DashboardSecondSection />
+      </div>
+      <div className="third-section">
+        <DashboardThirdSection/>
       </div>
     </div>
   );
