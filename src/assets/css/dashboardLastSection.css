@@ -1,0 +1,244 @@
+.last-section-main-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    /* border: 1px solid red; */
+
+    .left-section {
+        flex-grow: 3;
+        /* height: 10px; */
+        /* border: 1px solid blue; */
+        /* width: 100%; */
+        border-radius: 20px;
+        background: linear-gradient(127deg, rgba(6, 11, 40, 0.74) 28.26%, rgba(10, 14, 35, 0.71) 91.2%);
+        backdrop-filter: blur(60px);
+        padding: 20px;
+
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0;
+
+            h1 {
+                color: #FFF;
+                font-family: "Plus Jakarta Display";
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 140%;
+                /* 25.2px */
+            }
+        }
+
+        .topbottom {
+            display: flex;
+            padding: 0;
+
+            p {
+                color: var(--Gray-Gray-400, #A0AEC0);
+                font-family: "Plus Jakarta Display";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                /* line-height: 140%; */
+
+
+                /* 19.6px */
+                span {
+                    color: var(--Gray-Gray-400, #A0AEC0);
+                    font-family: "Plus Jakarta Display";
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    /* line-height: 140%; */
+                }
+            }
+        }
+
+        .content {
+            .header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                :first-child {
+                    flex-grow: 3;
+
+                }
+
+                :nth-child(2),
+                :nth-child(3),
+                :nth-child(4) {
+                    flex-grow: 1;
+                }
+
+                p {
+                    color: var(--Gray-Gray-400, #A0AEC0);
+                    font-family: "Plus Jakarta Display";
+                    font-size: 10px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    /* 15px */
+                }
+            }
+
+            .projects-details {
+                width: 95%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                :first-child {
+                    flex-grow: 2.7;
+
+                }
+
+                :nth-child(2),
+                :nth-child(3),
+                :nth-child(4) {
+                    flex-grow: 1;
+                }
+
+
+                .company {
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+
+                    :nth-child(1) {
+                        flex-grow: 0;
+                    }
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 5px;
+                    }
+
+                    h1 {
+                        margin-left: 5px;
+                        color: #FFF;
+                        font-family: "Plus Jakarta Display";
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 140%;
+                        /* 19.6px */
+
+                    }
+                }
+
+                .budget {
+                    h1 {
+                        color: #FFF;
+                        font-family: "Plus Jakarta Display";
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 140%;
+                        /* 19.6px */
+                    }
+                }
+
+                .completion {
+                    p {
+                        color: #FFF;
+                        font-family: "Plus Jakarta Display";
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 140%;
+                        /* 19.6px */
+                    }
+                }
+            }
+
+        }
+    }
+
+    .right-section {
+        border-radius: 20px;
+        background: linear-gradient(127deg, rgba(6, 11, 40, 0.74) 28.26%, rgba(10, 14, 35, 0.71) 91.2%);
+        backdrop-filter: blur(60px);
+        border: 1px solid blue;
+        flex-grow: 1;
+        padding: 20px;
+
+        height: 100%;
+        /* width: 100%; */
+        h1 {
+            color: #FFF;
+            font-family: "Plus Jakarta Display";
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%;
+            /* 25.2px */
+        }
+
+        .topbottom {
+            display: flex;
+            align-items: center;
+
+            p {
+                color: var(--Gray-Gray-400, #A0AEC0);
+                font-family: "Plus Jakarta Display";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 140%;
+
+                /* 19.6px */
+                span {
+                    color: var(--Gray-Gray-400, #A0AEC0);
+                    font-family: "Plus Jakarta Display";
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 140%;
+                }
+            }
+        }
+
+        .content {
+            display: flex;
+            align-items: start;
+
+            .left {
+                margin-top: 12px;
+                margin-right: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .right {
+                height: 100%;
+
+                h1 {
+                    color: #FFF;
+                    font-family: "Plus Jakarta Display";
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    /* 21px */
+                }
+
+                p {
+                    color: var(--Gray-Gray-400, #A0AEC0);
+                    font-family: "Plus Jakarta Display";
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    /* 18px */
+                }
+            }
+
+        }
+    }
+}

@@ -1,5 +1,5 @@
 .topNav-container {
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 280px;
     width: 85%;

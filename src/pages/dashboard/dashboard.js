@@ -5,6 +5,7 @@ import DashboardTopNav from "../../components/dashboardtopNav";
 import DashboardTopInfo from "../../components/dashboardTopInfo";
 import DashboardSecondSection from "../../components/dashboardSecondSection";
 import DashboardThirdSection from "../../components/dashboardThirdSection";
+import DashboardLastSection from "../../components/dashboardLastSection";
 
 export default function Dashboard() {
   return (
@@ -26,7 +27,6 @@ export default function Dashboard() {
                 <svg
                   width="56"
                   height="56"
-                  //  viewBox="0 0 56 56"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -101,7 +101,6 @@ export default function Dashboard() {
                 <svg
                   width="56"
                   height="56"
-                  //  viewBox="0 0 56 56"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -208,7 +207,6 @@ export default function Dashboard() {
                 <svg
                   width="56"
                   height="56"
-                  //  viewBox="0 0 56 56"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -283,7 +281,6 @@ export default function Dashboard() {
                 <svg
                   width="56"
                   height="56"
-                  //  viewBox="0 0 56 56"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -348,7 +345,6 @@ export default function Dashboard() {
                 </svg>
               }
             />
-            {/* <DashboardTopInfo title={``} amount = {``} change = {``} icon = {}/> */}
           </li>
         </ul>
       </div>
@@ -357,6 +353,9 @@ export default function Dashboard() {
       </div>
       <div className="third-section">
         <DashboardThirdSection/>
+      </div>
+      <div className="last-section">
+        <DashboardLastSection/>
       </div>
     </div>
   );

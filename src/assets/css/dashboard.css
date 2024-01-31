@@ -1,11 +1,16 @@
+html{
+    scroll-behavior:smooth;
+}
 .main-container {
     background: url(../images/background.png), #061b44 50% / cover no-repeat;
     /* filter: blur(136px); */
     padding: 0;
     margin: 0;
-    width: 100vw;
+    /* width: 100vw; */
+    max-width: 100vw;
 
-    height: 100vh;
+    /* height: 100vh; */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -14,6 +19,7 @@
         /* width: 15%; */
         /* background-color: aliceblue; */
     /* } */
+    
     .topInfo-section{
         margin-left: 270px;
         width: 85%;
@@ -47,4 +53,10 @@
         width: 85%;
         margin-top: 20px;
     }
+    .last-section{
+        margin-left: 270px;
+        width: 85%;
+        margin-top: 20px;
+    }
+    padding-bottom: 20px;
 }

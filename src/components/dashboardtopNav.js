@@ -1,5 +1,7 @@
 import React from "react";
 import "../assets/css/dashboardTopNav.css";
+import {Link} from "react-router-dom";
+
 
 export default function DashboardTopNav() {
   return (
@@ -17,7 +19,7 @@ export default function DashboardTopNav() {
       </div>
       <div className="right">
         <input type="search" name="search" id="search" aria-placeholder="" placeholder="Type here..."/>
-        <a href="/" className="user">
+        <Link to="/signIn" className="user">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="13"
@@ -35,7 +37,7 @@ export default function DashboardTopNav() {
             />
           </svg>{" "}
           Sign In
-        </a>
+        </Link>
         <a href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"

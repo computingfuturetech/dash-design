@@ -14,12 +14,14 @@
 
     nav {
         width: 200px;
-        height: fit-content;
+        height: 92vh;
+        /* height: fit-content; */ 
         border: none;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        /* justify-content: start; */
         position: fixed;
         top: 10px;
         left: 10px;
@@ -28,6 +30,8 @@
         backdrop-filter: blur(60px);
         padding: 20px;
         margin-top: 0px;
+        
+
 
         .logo {
             margin-block: 30px 10px;
@@ -72,7 +76,7 @@
                     a {
                         display: flex;
                         justify-content: start;
-                        align-items:center;
+                        align-items: center;
                         color: #FFF;
                         font-family: "Plus Jakarta Display";
                         font-size: 14px;
@@ -99,6 +103,59 @@
                     font-weight: 400;
                     line-height: 150%;
                     /* 18px */
+                }
+            }
+        }
+
+        .needHelpContainer {
+            background-image: url(../images/needHelp.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 20px;
+            margin: 0;
+            padding: 20px;
+
+            .content {
+                h1 {
+                    color: var(--black-amp-white-white, #FFF);
+                    font-family: "Plus Jakarta Display";
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 140%;
+                    /* 19.6px */
+                }
+
+                p {
+                    color: var(--black-amp-white-white, #FFF);
+                    font-family: "Plus Jakarta Display";
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 100%;
+                    /* 12px */
+                }
+
+                button {
+                    border-radius: 12px;
+                    border: none;
+                    background: linear-gradient(127deg, rgba(6, 11, 40, 0.74) 28.26%, rgba(10, 14, 35, 0.71) 91.2%);
+                    backdrop-filter: blur(5px);
+                    display: flex;
+                    width: 186px;
+                    height: 35px;
+                    padding: 0px 8px;
+                    justify-content: center;
+                    align-items: center;
+                    flex-shrink: 0;
+                    color: #FFF;
+                    text-align: center;
+                    font-family: "Plus Jakarta Display";
+                    font-size: 10px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 100%;
+                    /* 10px */
                 }
             }
         }
