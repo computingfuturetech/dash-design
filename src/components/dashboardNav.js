@@ -39,7 +39,7 @@ export default function DashboardNav() {
           <div className="navigations">
             <ul>
               <li>
-                <a href="/">
+                <Link to="/">
                   <svg
                     width="42"
                     height="41"
@@ -113,10 +113,10 @@ export default function DashboardNav() {
                     </defs>
                   </svg>
                   Dashboard
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">
+                <Link to="/tables">
                   <svg
                     width="42"
                     height="41"
@@ -198,10 +198,10 @@ export default function DashboardNav() {
                     </defs>
                   </svg>
                   Tables
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">
+                <Link to="/billing">
                   <svg
                     width="42"
                     height="41"
@@ -265,7 +265,7 @@ export default function DashboardNav() {
                     </defs>
                   </svg>
                   Billing
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="/">

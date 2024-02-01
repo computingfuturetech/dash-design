@@ -11,7 +11,7 @@ export default function Dashboard() {
   return (
     <div className="main-container">
       <div className="left-nav">
-        <DashboardTopNav />
+        <DashboardTopNav page = "Dashboard"/>
       </div>
       <div className="top-nav">
         <DashboardNav />
