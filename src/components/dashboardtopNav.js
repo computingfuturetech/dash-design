@@ -1,7 +1,9 @@
 import React from "react";
 import "../assets/css/dashboardTopNav.css";
+import {Link} from "react-router-dom";
 
-export default function DashboardTopNav() {
+
+export default function DashboardTopNav(props) {
   return (
     <div className="topNav-container">
       <div className="left">
@@ -10,14 +12,14 @@ export default function DashboardTopNav() {
             <a href="/">Pages </a>
           </li>
           <li>
-            <a className="active" href="/"> / Dashoard</a>
+            <a className="active" href="/"> / {props.page}</a>
           </li>
         </ul>
-        <h1>Dashboard</h1>
+        <h1>{props.page}</h1>
       </div>
       <div className="right">
         <input type="search" name="search" id="search" aria-placeholder="" placeholder="Type here..."/>
-        <a href="/" className="user">
+        <Link to="/signIn" className="user">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="13"
@@ -35,7 +37,7 @@ export default function DashboardTopNav() {
             />
           </svg>{" "}
           Sign In
-        </a>
+        </Link>
         <a href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
