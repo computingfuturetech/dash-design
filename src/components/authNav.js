@@ -53,7 +53,7 @@ export default function AuthNav() {
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/profile">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"

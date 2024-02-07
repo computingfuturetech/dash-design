@@ -332,7 +332,7 @@ export default function DashboardNav() {
               </li>
               <h3>ACCOUNT PAGES</h3>
               <li>
-                <a href="/">
+                <Link to="/profile">
                   <svg
                     width="42"
                     height="41"
@@ -396,7 +396,7 @@ export default function DashboardNav() {
                     </defs>
                   </svg>
                   Profile
-                </a>
+                </Link>
               </li>
               <li>
                 <Link to="/signIn">

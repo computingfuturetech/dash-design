@@ -11,6 +11,7 @@ import {
   Routes,
   Link,
 } from "react-router-dom";
+import Profile from "./pages/profile/profile";
 
 function App() {
   // let isSignUp = false;
@@ -24,8 +25,9 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/tables" element={<Tables/>}></Route>
           <Route path="/billing" element={<Billing/>}></Route>
+          <Route path="/profile" element={<Profile/>}></Route>
         </Routes>
-      </Router>
+        </Router>
     </>
   );
 }

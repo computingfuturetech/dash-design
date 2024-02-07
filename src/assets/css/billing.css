@@ -5,9 +5,9 @@
     margin: 0;
     /* width: 100vw; */
     max-width: 100vw;
-
     /* height: 100vh; */
     min-height: 100vh;
+    /* height: max-content; */
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -15,37 +15,224 @@
     gap: 20px;
 
     .billing-content-container {
+        margin-bottom: 100px;
         margin-left: 270px;
         width: 85%;
         margin-top: 70px;
-        border: 1px solid red;
+        /* border: 1px solid red; */
         height: 100vh;
 
         display: flex;
+        gap: 20px;
 
         .left {
             width: 60%;
-            border: 1px solid red;
-            
+            /* border: 1px solid red; */
+
 
             .card {
                 display: flex;
-                align-items: center;
+                align-items: start;
                 gap: 20px;
+                height: 250px;
+
+                /* border: 1px solid red; */
                 .card-front {
                     width: 50%;
-                    border: 1px solid red;
+                    height: 180px;
+                    /* border: 1px solid red; */
                 }
+
                 .card-back {
                     width: 50%;
-                    border: 1px solid red;
+                    height: 180px;
+                    /* border: 1px solid red; */
                 }
+            }
+
+            .payment-method {
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                justify-content: center;
+                align-items: start;
+                border-radius: 20px;
+                background-image: linear-gradient(to right, #050D2D, #053E8A);
+
+                .top-section {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    h1 {
+                        color: #fff;
+                        font-family: "Plus Jakarta Display";
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
+
+                    button {
+                        background-color: #0075FF;
+                        border: none;
+                        padding: 10px 25px;
+                        border-radius: 10px;
+                        font-size: 10px;
+                        font-family: "Plus Jakarta Display";
+                        font-weight: bold;
+                        color: #fff;
+                    }
+                }
+
+                .bottom-section {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 20px;
+
+                }
+            }
+
+            .billing-information {
+                margin-block: 20px;
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                justify-content: center;
+                align-items: start;
+                border-radius: 20px;
+                background-image: linear-gradient(to right, #050D2D, #053E8A);
+                gap: 20px;
+
+                .top {
+                    h1 {
+                        color: #fff;
+                        font-family: "Plus Jakarta Display";
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 18px;
+
+                    }
+                }
+
+
+
             }
         }
 
         .right {
             width: 40%;
-            border: 1px solid red;
+
+            /* border: 1px solid red; */
+            .invoices {
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                justify-content: center;
+                align-items: start;
+                border-radius: 20px;
+                background-image: linear-gradient(to bottom, #05122D, #051739, #052E69);
+                gap: 20px;
+
+                .top {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    h1 {
+                        color: #fff;
+                        font-family: "Plus Jakarta Display";
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 18px;
+                        margin: 0;
+                    }
+
+                    button {
+                        background-color: #0075FF;
+                        border: none;
+                        padding: 10px 25px;
+                        border-radius: 10px;
+                        font-size: 10px;
+                        font-family: "Plus Jakarta Display";
+                        font-weight: bold;
+                        color: #fff;
+                    }
+                }
+
+            }
+
+            .transactions {
+                margin-block: 20px;
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                justify-content: center;
+                align-items: start;
+                border-radius: 20px;
+                background-image: linear-gradient(to bottom right, #061438, #054081);
+
+                .top {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    h1 {
+                        color: #fff;
+                        font-family: "Plus Jakarta Display";
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 18px;
+                    }
+
+                    p {
+                        color: #A0AEC0;
+                        font-family: "Plus Jakarta Display";
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 12px;
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                    }
+                }
+
+                .newest {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    p {
+                        color: #A0AEC0;
+                        font-family: "Plus Jakarta Display";
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 10px;
+                        margin: 0;
+                    }
+
+                }
+
+                .yesterday {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    p {
+                        color: #A0AEC0;
+                        font-family: "Plus Jakarta Display";
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 10px;
+                        margin-top: 10px;
+                    }
+                }
+
+            }
         }
 
     }
