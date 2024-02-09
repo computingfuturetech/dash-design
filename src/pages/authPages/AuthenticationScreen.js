@@ -9,7 +9,7 @@ export default function AuthicationScreen(props) {
   return (
     <>
       <div className="container">
-        <AuthNav />
+        {/* <AuthNav /> */}
 
         <div className="left">
           <h1>INSPIRED BY THE FUTURE:</h1>

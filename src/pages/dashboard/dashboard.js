@@ -8,6 +8,10 @@ import DashboardThirdSection from "../../components/dashboardThirdSection";
 import DashboardLastSection from "../../components/dashboardLastSection";
 
 export default function Dashboard() {
+  
+  if(localStorage.getItem('login') === null){
+    window.location.href = "/signIn";
+  }
   return (
     <div className="main-container">
       <div className="left-nav">
