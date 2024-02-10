@@ -62,6 +62,11 @@ export default function SignIn(props) {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
+          <div className="form-forgot">
+            <p>
+              <Link to="/forgotPassword">Forgot password?</Link>
+            </p>
+          </div>
           <div className="form-btn">
             <button onClick={handleSubmit}>SIGN IN</button>
           </div>

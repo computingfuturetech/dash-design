@@ -10,9 +10,27 @@ import project1 from "../../assets/images/project1.png";
 import project2 from "../../assets/images/project2.png";
 import project3 from "../../assets/images/project3.png";
 import Project from "../../components/project";
+import { useEffect } from "react";
 
 export default function Profile() {
-  const label = { inputProps: { "aria-label": "Switch demo" } };
+  
+
+  useEffect(() => {
+    if (localStorage.getItem("login")) {
+      const jwt = JSON.parse(localStorage.getItem("login"));
+      const token = jwt.token;
+      const jwtpayload = JSON.parse(window.atob(token.split('.')[1]))
+      if (jwtpayload.exp * 1000 < Date.now()) {
+        console.log("Token expired");
+        localStorage.removeItem("login");
+        window.location.href = "/signIn";
+      }
+  
+    }
+    else {
+      window.location.href = "/signIn";
+    }
+  },[localStorage.getItem("login")])
 
   const rating = 68;
   return (

@@ -8,7 +8,29 @@ import PaymentMethod from "../../components/payment-method";
 import Bill from "../../components/bill";
 import Invoice from "../../components/invoice";
 import Transaction from "../../components/transaction";
+import { useEffect } from "react";
+
+
 export default function Billing() {
+
+
+  useEffect(() => {
+    if (localStorage.getItem("login")) {
+      const jwt = JSON.parse(localStorage.getItem("login"));
+      const token = jwt.token;
+      const jwtpayload = JSON.parse(window.atob(token.split('.')[1]))
+      if (jwtpayload.exp * 1000 < Date.now()) {
+        console.log("Token expired");
+        localStorage.removeItem("login");
+        window.location.href = "/signIn";
+      }
+  
+    }
+    else {
+      window.location.href = "/signIn";
+    }
+  },[localStorage.getItem("login")])
+
   return (
     <div className="billing-main-container">
       <div className="left-nav">
