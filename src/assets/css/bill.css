@@ -1,0 +1,63 @@
+.bill {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #161C3A, #061F51);
+    width: 100%;
+    padding-block: 20px;
+    .top {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        
+        .name {
+            h1 {
+                padding: 0px 20px;
+                color: #fff;
+                font-family: "Plus Jakarta Display";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+
+            }
+        }
+        .actions{
+            display: flex;
+            gap: 20px;
+            padding: 0px 20px;
+            a{
+                color: #fff;
+                font-family: "Plus Jakarta Display";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            a.delete{
+                color: #F53C2B;
+            
+            }
+        }
+    }
+    .bottom{
+        margin: 0;
+        padding: 0px 20px;
+        p{
+            padding: 0;
+            margin: 5px 0px;
+            color: #a0aec0;
+            font-family: "Plus Jakarta Display";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+
+        }
+    }
+}

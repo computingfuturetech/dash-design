@@ -1,0 +1,53 @@
+.transaction {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+        display: flex;
+        /* width: 70%; */
+        gap: 20px;
+        align-items: center;
+
+        .transaction-info {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 5px;
+
+            h1 {
+                color: #fff;
+                font-family: "Plus Jakarta Display";
+                font-style: normal;
+                font-weight: 500;
+                margin: 0;
+                font-size: 14px;
+            }
+
+            p {
+                color: #A0AEC0;
+                margin: 0;
+                font-family: "Plus Jakarta Display";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        justify-content: end;
+        gap: 20px;
+        align-items: center;
+
+        p {
+            color: #A0AEC0;
+            font-family: "Plus Jakarta Display";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+        }
+    }
+}

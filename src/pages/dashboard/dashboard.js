@@ -6,8 +6,29 @@ import DashboardTopInfo from "../../components/dashboardTopInfo";
 import DashboardSecondSection from "../../components/dashboardSecondSection";
 import DashboardThirdSection from "../../components/dashboardThirdSection";
 import DashboardLastSection from "../../components/dashboardLastSection";
+import { useEffect } from "react";
 
 export default function Dashboard() {
+
+  
+  useEffect(() => {
+    if (localStorage.getItem("login")) {
+      const jwt = JSON.parse(localStorage.getItem("login"));
+      const token = jwt.token;
+      const jwtpayload = JSON.parse(window.atob(token.split('.')[1]))
+      if (jwtpayload.exp * 1000 < Date.now()) {
+        console.log("Token expired");
+        localStorage.removeItem("login");
+        window.location.href = "/signIn";
+      }
+  
+    }
+    else {
+      window.location.href = "/signIn";
+    }
+  },[localStorage.getItem("login")])
+
+  
   return (
     <div className="main-container">
       <div className="left-nav">

@@ -1,9 +1,14 @@
  html{
     scroll-behavior:smooth;
 }
+*{
+    font-family: "Plus Jakarta Display";
+}
 .main-container {
     background: url(../images/background.png), #061b44 50% / cover no-repeat;
     /* filter: blur(136px); */
+    backdrop-filter: blur(60px);
+
     padding: 0;
     margin: 0;
     /* width: 100vw; */
