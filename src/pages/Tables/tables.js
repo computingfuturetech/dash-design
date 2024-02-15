@@ -10,12 +10,16 @@ import React from "react";
 import "../../assets/css/tables.css";
 import AuthorDetails from "../../components/authorDetails";
 import ProjectDetails from "../../components/projectDetails";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
+import Loading from "../../components/loading";
 
 export default function Tables() {
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     if (localStorage.getItem("login")) {
+      setIsLoading(false);
       const jwt = JSON.parse(localStorage.getItem("login"));
       const token = jwt.token;
       const jwtpayload = JSON.parse(window.atob(token.split('.')[1]))
@@ -23,14 +27,19 @@ export default function Tables() {
         console.log("Token expired");
         localStorage.removeItem("login");
         window.location.href = "/signIn";
+      setIsLoading(false);
+
       }
   
     }
     else {
       window.location.href = "/signIn";
+      setIsLoading(false);
+
     }
   },[localStorage.getItem("login")])
   return (
+    isLoading ? <Loading />:
     <div className="main-container">
       <div className="left-nav">
         <DashboardTopNav page="Tables" />

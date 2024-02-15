@@ -3,13 +3,26 @@ import "../assets/css/signIn.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import ReactLoading from 'react-loading';
 import AlertDialog from "./alertDialog";
 
 export default function ForgotPassword() {
     const [email, setEmail] = React.useState("");
     const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-    
+    const [button, setButton] = useState("Send OTP");
+    const [emailAria, setEmailAria] = useState(true);
+    const emailRegex = new RegExp(
+      /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+    );
+    const handleEmailChange = (e) => {
+      setEmail(e.target.value);
+      if (emailRegex.test(e.target.value)) {
+        setEmailAria(true);
+      } else {
+        setEmailAria(false);
+      }
+    };
 
     const handleSubmit = (e) =>  {
         // e.preventDefault();
@@ -18,6 +31,8 @@ export default function ForgotPassword() {
         const data = {
             email: email.toLowerCase(),
           };
+          setButton( <ReactLoading height={40} width={40} type={"cylon"} color={"#fff"} />);
+
         axios.post("http://127.0.0.1:8000/user/send-otp/", data)
         .then((response) => {
             // console.log(`responsedata: ${response.status.data}`)
@@ -29,6 +44,7 @@ export default function ForgotPassword() {
                 // console.log("Email sent");
             }
         }).catch((error) => {
+          setButton("Send OTP");
             // console.log(`error: ${error}`);
             setErrorMessage("Invalid email");
             setIsErrorDialogOpen(true);
@@ -47,12 +63,16 @@ export default function ForgotPassword() {
             name="email"
             id="email"
             placeholder="Your email address"
-            onChange={(e) => setEmail(e.target.value)}
+            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {handleEmailChange(e) }}
             value={email}
           />
+          {emailAria ? null : (
+            <div className="error">
+            <p className="errorp">Invalid email</p></div>)}
           <div className="form-btn">
             <Link to="">
-              <button onClick={handleSubmit}>Send</button>
+              <button onClick={handleSubmit} disabled={!(emailAria&&email!='')}>{button}</button>
             </Link>
           </div>
         </div>

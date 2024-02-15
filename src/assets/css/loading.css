@@ -1,0 +1,11 @@
+.loading{
+    background: url(../images/background.png), #061b44 50% / cover no-repeat;
+    /* filter: blur(136px); */
+    backdrop-filter: blur(60px);
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

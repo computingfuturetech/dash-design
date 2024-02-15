@@ -3,7 +3,7 @@ import Billing from "./pages/Billing/billing";
 import Tables from "./pages/Tables/tables";
 import SignUp from "./pages/authPages/AuthenticationScreen";
 import Dashboard from "./pages/dashboard/dashboard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
   BrowserRouter as Router,
@@ -17,8 +17,13 @@ import ForgotPassword from "./components/forgotPassword";
 
 function App() {
   // let isSignUp = false;
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
+   
+  
   if (localStorage.getItem("login")) {
+    
     const jwt = JSON.parse(localStorage.getItem("login"));
     const token = jwt.token;
     const jwtpayload = JSON.parse(window.atob(token.split('.')[1]))
@@ -26,12 +31,15 @@ function App() {
       console.log("Token expired");
       localStorage.removeItem("login");
       window.location.href = "/signIn";
+      setIsLoading(false);
+      
     }
 
   }},[localStorage.getItem("login")])
 
   return (
     <>
+
       <Router>
         <Routes>
           <Route path="/signUp" element={<SignUp isSignUp={true} />}></Route>

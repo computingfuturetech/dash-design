@@ -120,6 +120,7 @@
     justify-content: end;
     align-items: center;
     margin-top: -10px;
+
 }
 .signInform .form .form-resend button{
     border: none;
@@ -128,6 +129,7 @@
     font-family: "Plus Jakarta Display";
     font-size: 12px;
     padding-inline: 10px;
+    cursor: pointer;
 }
 
 .signInform .form .form-btn button,
@@ -156,12 +158,16 @@
     line-height: 150%;
     cursor: pointer;
     /* 15px */
-
+    
+}
+.signInform .form .form-btn button:disabled{
+    background: #A0AEC0;
+    cursor: not-allowed;
 }
 
-.signInform .form .form-btn button:hover {
+/* .signInform .form .form-btn button:hover {
     background: #0064E6;
-}
+} */
 
 
 .signInform .form .form-footer {
@@ -181,6 +187,7 @@
 }
 
 .signInform .form .form-footer a {
+    text-decoration: none;
     color: #FFF;
     font-family: "Plus Jakarta Display";
     font-size: 14px;
@@ -188,5 +195,8 @@
     font-weight: 700;
     line-height: 140%;
 
+}
+.signInform .form .form-footer a:hover {
+    color: #0075FF;
 }
 

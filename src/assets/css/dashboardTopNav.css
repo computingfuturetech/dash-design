@@ -1,13 +1,14 @@
 .topNav-container {
     position: absolute;
     top: 20px;
-    left: 280px;
-    width: 85%;
+    /* left: 280px; */
+    width: 100%;
+    /* right: 0px; */
     /* position: relative; */
     /* background-color: aquamarine; */
     height: 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
 
     .left {
@@ -15,7 +16,7 @@
         align-items: start;
         justify-content: start;
         flex-direction: column;
-        padding: 5px;
+        /* padding: 5px; */
 
         ul {
             display: flex;
