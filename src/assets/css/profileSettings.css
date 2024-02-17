@@ -1,0 +1,127 @@
+.profile-settings-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(to bottom right, #060B28, #0A0E23);
+    /* padding: 20px; */
+    border-radius: 20px;
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 20px;
+
+    h1{
+        color: #FFF;
+        font-family: "Plus Jakarta Display";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+        margin-bottom: 20px;
+    }
+    
+
+    .profile-settings-main-container{
+        display: flex;
+        width: 100%;
+        .left {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            .profile-img{
+                width: 60%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+
+                img{
+                     width: 100%;
+                     /* height: ; */
+                     border-radius: 20px;
+                 
+                }
+                .edit-container{
+                    position: absolute;
+                    bottom: -10px;
+                    right: -10px;
+                    background-color: #1d1d1d;
+                    border-radius: 10px;
+                    padding: 5px;
+                    svg{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+            }
+        }
+    
+        .right {
+            display: flex;
+            align-items: start;
+            justify-content: start;
+            /* border: 2px solid #A0AEC0; */
+            width: 50%;
+            flex-direction: column;
+    
+            label {
+                margin: 0 !important;
+                width: 85%;
+                padding: 0;
+                color: #FFF;
+                font-family: "Plus Jakarta Display";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+                margin-bottom: 10px;
+            }
+    
+            input {
+                margin: 5px 0  !important;
+                
+                display: block;
+                width: 80%;
+                /* width: 350px; */
+                height: 50px;
+                padding: 0px 20px;
+                color: #FFF;
+                align-items: center;
+                flex-shrink: 0;
+                border-radius: 20px;
+                border: 2px solid #A0AEC0;
+                background: linear-gradient(124deg, rgba(255, 255, 255, 0.00) -22.38%, rgba(255, 255, 255, 0.04) 70.38%);
+                backdrop-filter: blur(21px);
+                /* margin-bottom: 10px; */
+                /* margin-block: 5px 15px; */
+                margin-top: 10px;
+                margin-bottom: 30px;
+            }
+            textarea {
+                margin: 5px 0  !important;
+                
+                display: block;
+                width: 80%;
+                /* width: 350px; */
+                /* height: 50px; */
+                padding: 20px 20px;
+                color: #FFF;
+                align-items: center;
+                flex-shrink: 0;
+                border-radius: 20px;
+                border: 2px solid #A0AEC0;
+                background: linear-gradient(124deg, rgba(255, 255, 255, 0.00) -22.38%, rgba(255, 255, 255, 0.04) 70.38%);
+                backdrop-filter: blur(21px);
+                /* margin-bottom: 10px; */
+                /* margin-block: 5px 15px; */
+                margin-top: 10px;
+                margin-bottom: 30px;
+                resize: none;
+            }
+        }
+    }
+}

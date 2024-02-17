@@ -3,6 +3,7 @@ import "../assets/css/signUp.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ReactLoading from "react-loading";
 import AlertDialog from "./alertDialog";
 
 export default function SignUp() {
@@ -11,15 +12,46 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [button, setButton] = useState("SIGN UP");
+  
 
+  const [emailAria, setEmailAria] = useState(true);
+  const [passwordAria, setPasswordAria] = useState(true);
+  const emailRegex = new RegExp(
+    /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+  );
+  const passwordRegex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/);
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (emailRegex.test(e.target.value)) {
+      setEmailAria(true);
+    } else {
+      setEmailAria(false);
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (passwordRegex.test(e.target.value)) {
+      setPasswordAria(true);
+    } else {
+      setPasswordAria(false);
+    }
+  };
 
   const postUser = () => {
     const data = {
       username: name.toString(),
-      email: email.toString(),
+      email: email.toLowerCase().toString(),
       password: password.toString(),
     };
+
     // console.log(data)
+    setButton(
+      <ReactLoading height={40} width={40} type={"cylon"} color={"#fff"} />
+    );
+
     axios
       .post("http://127.0.0.1:8000/user/create/", data)
       .then((response) => {
@@ -29,6 +61,7 @@ export default function SignUp() {
         }
       })
       .catch((error) => {
+        setButton("SIGN UP");
         console.log("error = " + error.response.status);
         if (error.response.status === 400 || error.response.status === 500) {
           setIsErrorDialogOpen(true);
@@ -38,7 +71,6 @@ export default function SignUp() {
           setErrorMessage(error.response.data.status);
 
           // alert(error.response.data.status);
-
         } else if (error.response.status == 500) {
           // console.log(error.response.data.error['password'])
           // alert(error.response.data.error['password'])
@@ -59,12 +91,15 @@ export default function SignUp() {
                 /'email': \[ErrorDetail\(string='(.+?)'/
               );
               if (emailErrorMessageMatch) {
-                const emailErrorMessage = emailErrorMessageMatch[1].replace(/\\'/g, "'");
+                const emailErrorMessage = emailErrorMessageMatch[1].replace(
+                  /\\'/g,
+                  "'"
+                );
                 console.log(emailErrorMessage);
                 setErrorMessage(emailErrorMessage);
                 // alert(emailErrorMessage);
+              }
             }
-          }
           } catch (parseError) {
             console.log("Error parsing the error response:", parseError);
             // alert("Error parsing the error response.");
@@ -371,20 +406,33 @@ export default function SignUp() {
             type="email"
             id="email"
             placeholder="Your email address"
-            onChange={(e) => setEmail(e.target.value)}
+            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {handleEmailChange(e) }}
             value={email}
           />
-          <label htmlFor="password">Password</label>
+          {emailAria ? null : (
+            <div className="error">
+            <p className="errorp">Invalid email</p></div>)}
+          <label htmlFor="password" aria-label="hello" aria-invalid="true">Password </label>
           <input
             type="password"
             id="password"
             placeholder="Your password"
-            onChange={(e) => setPassword(e.target.value)}
+            // onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {handlePasswordChange(e) }}
             value={password}
           />
+            <div className="require">
+              <p>Password must contain</p>
+              <ul>
+                <li>At least 8 characters</li>
+                <li>At least one number</li>
+                <li>At least one Alphabet</li>
+              </ul>
+            </div>
         </div>
         <div className="form-btn">
-          <button onClick={postUser}>SIGN UP</button>
+          <button onClick={postUser} disabled={!(emailAria&&passwordAria&&email!=''&&name!=''&&password!='')}>{button}</button>
         </div>
         <div className="signIn">
           <p>

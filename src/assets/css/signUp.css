@@ -1,5 +1,57 @@
 
+.error{
+    margin: 0;
 
+    padding: 0;
+    font-family: "Plus Jakarta Display";
+    text-align: right;
+    width: 100%;
+    margin-top: -10px;
+    align-items: right;
+    p{
+        margin: 0;
+        margin-left: 10px !important;
+        padding: 0;
+        color: rgb(199, 55, 55) !important;
+        width: fit-content;
+        text-align: left;
+        font-size: 12px !important;
+    }
+    
+}
+.require{
+    margin: 0;
+    margin-top: -10px;
+
+    text-align: left;
+    align-items: left;
+    p{
+        color: #fff !important;
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        width: fit-content;
+        margin-left: 10px !important;
+        font-weight: 500;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        padding-left: 25px;
+        li{
+            font-weight: 500;
+            /* list-style: none; */
+            margin: 0;
+            padding: 0;
+            color: #fff !important;
+            font-size: 12px !important;
+            text-align: left;
+
+        
+        }
+    }
+}
 .container {
     display: flex;
     justify-content: center;
@@ -15,7 +67,7 @@
     .left {
         width: 50%;
         height: 100%;
-        background-image: url('../images/authBack.png');
+        background-image: url('../images/authBack.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -188,6 +240,10 @@
                         line-height: 150%;
                         /* 15px */
                     
+                    }
+                    button:disabled {
+                        background: #A0AEC0;
+                        cursor: not-allowed;
                     }
                 }.signIn {
                 p {

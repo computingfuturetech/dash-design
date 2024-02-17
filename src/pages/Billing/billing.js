@@ -8,18 +8,25 @@ import PaymentMethod from "../../components/payment-method";
 import Bill from "../../components/bill";
 import Invoice from "../../components/invoice";
 import Transaction from "../../components/transaction";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
+import Loading from "../../components/loading";
 
 
 export default function Billing() {
 
+  const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
     if (localStorage.getItem("login")) {
+      setIsLoading(false);
+
       const jwt = JSON.parse(localStorage.getItem("login"));
       const token = jwt.token;
       const jwtpayload = JSON.parse(window.atob(token.split('.')[1]))
       if (jwtpayload.exp * 1000 < Date.now()) {
+      setIsLoading(false);
+
         console.log("Token expired");
         localStorage.removeItem("login");
         window.location.href = "/signIn";
@@ -32,6 +39,8 @@ export default function Billing() {
   },[localStorage.getItem("login")])
 
   return (
+    isLoading ? <Loading/>:
+
     <div className="billing-main-container">
       <div className="left-nav">
         <DashboardTopNav page="Billing" />

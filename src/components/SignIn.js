@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import AlertDialog from "./alertDialog";
+import ReactLoading from 'react-loading';
+
 
 export default function SignIn(props) {
 
@@ -11,14 +13,43 @@ export default function SignIn(props) {
     const [password, setPassword] = useState("");
     const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [button, setButton] = useState("SIGN IN");
+
+    const [emailAria, setEmailAria] = useState(true);
+  const [passwordAria, setPasswordAria] = useState(true);
+  const emailRegex = new RegExp(
+    /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+  );
+  const passwordRegex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/);
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (emailRegex.test(e.target.value)) {
+      setEmailAria(true);
+    } else {
+      setEmailAria(false);
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (passwordRegex.test(e.target.value)) {
+      setPasswordAria(true);
+    } else {
+      setPasswordAria(false);
+    }
+  };
+
     
     
     const handleSubmit = (e) => {
       const data = {
-        email: email,
+        email: email.toLowerCase(),
         password: password,
       };
       console.log(data);
+      setButton( <ReactLoading height={40} width={40} type={"cylon"} color={"#fff"} />);
+
       axios.post("http://127.0.0.1:8000/user/login/", data)
       .then((response) => {
         if (response.status === 200) {
@@ -31,6 +62,7 @@ export default function SignIn(props) {
         }
       })
       .catch((error) => {
+        setButton("SIGN IN");
         console.log(error);
         setErrorMessage("Invalid email or password");
         setIsErrorDialogOpen(true);
@@ -50,25 +82,31 @@ export default function SignIn(props) {
             name="email"
             id="email"
             placeholder="Your email address"
-            onChange={(e) => setEmail(e.target.value)}
+            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {handleEmailChange(e) }}
             value={email}
           />
+          {emailAria ? null : (
+            <div className="error">
+            <p className="errorp">Invalid email</p></div>)}
           <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
             id="password"
             placeholder="Your password"
-            onChange={(e) => setPassword(e.target.value)}
+            // onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {handlePasswordChange(e) }}
             value={password}
           />
+          
           <div className="form-forgot">
             <p>
               <Link to="/forgotPassword">Forgot password?</Link>
             </p>
           </div>
           <div className="form-btn">
-            <button onClick={handleSubmit}>SIGN IN</button>
+            <button onClick={handleSubmit} disabled={!(emailAria&&passwordAria&&email!=''&&password!='')}>{button}</button>
           </div>
           <div className="form-footer">
             <p>

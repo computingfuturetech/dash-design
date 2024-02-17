@@ -1,13 +1,37 @@
 import React from 'react'
 import {useState} from 'react'
 import axios from 'axios'
+import ReactLoading from 'react-loading';
 import AlertDialog from './alertDialog';
+
 
 export default function ChangePassword() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [button, setButton] = useState("Change Password");
+  const [passwordAria, setPasswordAria] = useState(true);
+    const [confirmPasswordAria, setConfirmPasswordAria] = useState(true);
+    const passwordRegex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/);
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+        if (passwordRegex.test(e.target.value)) {
+            setPasswordAria(true);
+        } else {
+            setPasswordAria(false);
+        }
+    }
+    const handleConfirmPasswordChange = (e) => {
+        setConfirmPassword(e.target.value);
+        if (passwordRegex.test(e.target.value)) {
+            setConfirmPasswordAria(true);
+        } else {
+            setConfirmPasswordAria(false);
+        }
+    }
+
+
     const handleSubmit = (e) => {
         // console.log("password: ", password);
         e.preventDefault();
@@ -28,15 +52,20 @@ export default function ChangePassword() {
                     email: localStorage.getItem("email"),
                     password: password,
                 };
+          setButton( <ReactLoading height={40} width={40} type={"cylon"} color={"#fff"} />);
+
                 console.log(data);
                 axios.put("http://127.0.0.1:8000/user/forget-password/",data)
                 .then((response) => {
+
                     if (response.status === 200) {
                         window.location.href = "/signIn";
                         localStorage.removeItem("email");
                     }
                 })
                 .catch((error) => {
+          setButton("Change Password");
+
                     console.log(`error: ${error}`);
                     setErrorMessage(error.response.data.message);
                     setIsErrorDialogOpen(true);
@@ -55,7 +84,8 @@ export default function ChangePassword() {
           name="password"
           id="password"
           placeholder="Enter new password"
-            onChange={(e) => setPassword(e.target.value)}
+            // onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {handlePasswordChange(e) }}
             value={password}
       />
       <label htmlFor="confirmPassword">Confirm Password</label>
@@ -64,11 +94,20 @@ export default function ChangePassword() {
           name="confirmPassword"
           id="confirmPassword"
           placeholder="Confirm new password"
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            // onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={(e) => {handleConfirmPasswordChange(e) }}
             value={confirmPassword}
       />
+      <div className="require">
+              <p>Password must contain</p>
+              <ul>
+                <li>At least 8 characters</li>
+                <li>At least one number</li>
+                <li>At least one Alphabet</li>
+              </ul>
+            </div>
       <div className="form-btn">
-          <button onClick={handleSubmit}>Change Password</button>
+          <button onClick={handleSubmit} disabled={!(passwordAria&&confirmPasswordAria&&password!=''&&confirmPassword!='')}>{button}</button>
       </div>
       </div>
   </div>
