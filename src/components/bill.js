@@ -1,10 +1,10 @@
 import React from 'react'
 import "../assets/css/bill.css";
 
-export default function Bill(props) {
+export default function Bill(props) { 
   return (
     <div className="bill">
-              <div className="top">
+              <div className="top-bill">
                 <div className="name">
                   <h1>{props.name}</h1>
                 </div>
@@ -13,7 +13,7 @@ export default function Bill(props) {
                   <a href="/"><img src="data:image/svg+xml,%3Csvg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-0.00012207 7.22922V8.74922C-0.00012207 8.88922 0.109878 8.99922 0.249878 8.99922H1.76988C1.83488 8.99922 1.89988 8.97422 1.94488 8.92422L7.40488 3.46922L5.52988 1.59422L0.074878 7.04922C0.024878 7.09922 -0.00012207 7.15922 -0.00012207 7.22922ZM8.85488 2.01922C9.04988 1.82422 9.04988 1.50922 8.85488 1.31422L7.68488 0.144221C7.48988 -0.0507794 7.17488 -0.0507794 6.97988 0.144221L6.06488 1.05922L7.93988 2.93422L8.85488 2.01922V2.01922Z' fill='white'/%3E%3C/svg%3E" alt="edit" /> EDIT</a>
                 </div>
               </div>
-              <div className="bottom">
+              <div className="bottom-bill">
                 <div className="address">
                   <p>Company Name: {props.companyName}</p>
                 </div>

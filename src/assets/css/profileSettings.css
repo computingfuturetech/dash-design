@@ -11,7 +11,7 @@
     flex-direction: column;
     padding-bottom: 20px;
 
-    h1{
+    h1 {
         color: #FFF;
         font-family: "Plus Jakarta Display";
         font-size: 24px;
@@ -20,46 +20,108 @@
         line-height: 140%;
         margin-bottom: 20px;
     }
-    
 
-    .profile-settings-main-container{
+
+    .profile-settings-main-container {
         display: flex;
         width: 100%;
+
         .left {
             width: 50%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-evenly;
             margin-right: 20px;
-            .profile-img{
-                width: 60%;
+            flex-direction: column;
+
+            .profile-img {
+                width: 40%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 position: relative;
 
-                img{
-                     width: 100%;
-                     /* height: ; */
-                     border-radius: 20px;
-                 
+                img {
+                    width: 300px;
+                    /* height: ; */
+                    height: 300px;
+                    border-radius: 1000px;
+                    object-fit: cover;
+
                 }
-                .edit-container{
+
+                .middle {
+                    transition: .5s ease;
+                    opacity: 0;
                     position: absolute;
-                    bottom: -10px;
-                    right: -10px;
-                    background-color: #1d1d1d;
-                    border-radius: 10px;
-                    padding: 5px;
-                    svg{
-                        width: 20px;
-                        height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    top: 50%;
+                    left: 45%;
+                    bottom: 50%;
+                    right: 50%;
+                    transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                    text-align: center;
+                    border-radius: 1000px;
+                    width: 100%;
+
+                    .text {
+                        width: 60%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        img {
+                            border: none;
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 0;
+                        }
+                        input{
+                            display: none;
+                        
+                        }
                     }
                 }
 
+
+
+
+            }
+
+            .profile-img:hover img {
+                opacity: 0.3;
+            }
+
+            .profile-img:hover .middle {
+                opacity: 1;
+            }
+
+            button {
+                width: 40%;
+                height: 50px;
+                padding: 0px 20px;
+                color: #FFF;
+                align-items: center;
+                flex-shrink: 0;
+                border-radius: 20px;
+                border: 2px solid #A0AEC0;
+                background: linear-gradient(124deg, rgba(255, 255, 255, 0.00) -22.38%, rgba(255, 255, 255, 0.04) 70.38%);
+                backdrop-filter: blur(21px);
+                margin-top: 10px;
+                margin-bottom: 30px;
+                cursor: pointer;
+            }
+
+            .update {
+                font-weight: 500;
+                border: none;
+                background: #006DED;
             }
         }
-    
+
         .right {
             display: flex;
             align-items: start;
@@ -67,7 +129,7 @@
             /* border: 2px solid #A0AEC0; */
             width: 50%;
             flex-direction: column;
-    
+
             label {
                 margin: 0 !important;
                 width: 85%;
@@ -80,10 +142,10 @@
                 line-height: 140%;
                 margin-bottom: 10px;
             }
-    
+
             input {
-                margin: 5px 0  !important;
-                
+                margin: 5px 0 !important;
+
                 display: block;
                 width: 80%;
                 /* width: 350px; */
@@ -101,9 +163,10 @@
                 margin-top: 10px;
                 margin-bottom: 30px;
             }
+
             textarea {
-                margin: 5px 0  !important;
-                
+                margin: 5px 0 !important;
+
                 display: block;
                 width: 80%;
                 /* width: 350px; */
@@ -122,6 +185,61 @@
                 margin-bottom: 30px;
                 resize: none;
             }
+            button {
+
+                width: 40%;
+                height: 50px;
+                padding: 0px 20px;
+                color: #FFF;
+                align-items: center;
+                flex-shrink: 0;
+                border-radius: 20px;
+                border: 2px solid #A0AEC0;
+                background: linear-gradient(124deg, rgba(255, 255, 255, 0.00) -22.38%, rgba(255, 255, 255, 0.04) 70.38%);
+                backdrop-filter: blur(21px);
+                margin-top: 10px;
+                margin-bottom: 30px;
+                cursor: pointer;
+            }
+
+            .update {
+                display: none;
+                font-weight: 500;
+                border: none;
+                background: #006DED;
+            }
         }
     }
+}
+@media screen and (max-width: 768px) {
+    .profile-settings-container {
+       .profile-settings-main-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .left{
+            .profile-img{
+                width: 60%;
+                .middle{
+                    left: 40%;
+                    right: 50%;
+                }
+            }
+
+            button.update{
+                display: none;
+            }
+        }
+        .right{
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            button.update{
+                display: block;
+            }
+        }
+       }
+    }
+    
 }

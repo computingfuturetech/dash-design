@@ -164,3 +164,39 @@
 
 
 }
+
+@media screen and (max-width: 900px){
+    .dashboardNav {
+        /* display: none; */
+        width: 160px;
+
+        nav{
+            width: 160px;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 600px){
+    .dashboardNav {
+        /* display: none; */
+        width: 100px;
+
+        nav{
+            width: 140px;
+        }
+    }
+    
+}
+@media screen and (max-width: 500px){
+    .dashboardNav {
+        display: none;
+        width: 100px;
+
+        nav{
+            /* display: none; */
+            width: 100px;
+        }
+    }
+    
+}
