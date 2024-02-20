@@ -108,7 +108,8 @@
                     margin-right: 40px;
 
                     button {
-                        background-color: #0075FF;
+                        /* background-color: #0075FF; */
+                        background-color: transparent;
                         color: #fff;
                         border: none;
                         padding: 10px 25px;
@@ -120,8 +121,13 @@
                         align-items: center;
                         justify-content: center;
                         gap: 5px;
+                        cursor: pointer;
 
                     }
+                    button.active{
+                        background-color: #0075FF;
+                    }
+
 
                     a {
                         text-decoration: none;
@@ -134,6 +140,44 @@
                         justify-content: center;
                         gap: 5px;
                     }
+                    .dropbtn {
+                        background-color: transparent;
+                        color: #fff;
+                        padding: 10px 25px;
+                        border: none;
+                        border-radius: 10px;
+                        font-family: "Plus Jakarta Display";
+                        font-size: 10px;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 5px;
+                        cursor: pointer;
+                        display: none;
+                      }
+                      
+                      .dropdown {
+
+                        position: relative;
+                        display: inline-block;
+                      }
+                      
+                      .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        background-color: #06163B;
+                        padding: 10px;
+                        border-radius: 10px;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                        z-index: 1;
+                      }
+                      
+                      
+                      .dropdown-content a:hover {background-color: #ddd;}
+                      
+                      .dropdown:hover .dropdown-content {display: block;}
+                      
                 }
             }
 
@@ -467,4 +511,37 @@
             }
         }
     }
+    .profile-settings, .billing-settings, .account-settings{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    .profile-main-container{
+        .profile-content-container{
+            .top{
+                .right{
+                    
+                    button{
+                        display: none !important;
+                        /* display: none; */
+                        color: #060F2E;
+                    }
+                    .dropdown{
+                        display: block !important;
+                        button.dropbtn{
+                            display: block !important;
+                        }
+                        .dropdown-content{
+                            button{
+                                display: block !important;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+    
 }

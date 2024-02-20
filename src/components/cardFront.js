@@ -6,7 +6,7 @@ export default function CardFront() {
   return (
     <div className='card-container'>
         <div className="card-logo">
-            <h1>Vision UI</h1>
+            <h1>REAL DASH</h1>
             <img src={cardLogo} alt="logo" />
         </div>
 
