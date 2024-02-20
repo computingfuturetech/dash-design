@@ -6,7 +6,7 @@ import axios from 'axios';
 import ReactLoading from 'react-loading';
 import AlertDialog from './alertDialog';
 
-export default function VerifyOTP() {
+export default function VerifyLoginOTP() {
     const [otp, setOtp] = useState("");
     const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -34,10 +34,13 @@ export default function VerifyOTP() {
         };
         setButton( <ReactLoading height={40} width={40} type={"cylon"} color={"#fff"} />);
 
-        axios.post("http://127.0.0.1:8000/user/verify-otp/", data)
+        axios.post("http://127.0.0.1:8000/user/verify-otp-twofa/", data)
         .then((response) => {
             if (response.status === 200) {
-                window.location.href = "/changePassword";
+                localStorage.setItem('login', JSON.stringify({login:true, token: response.data.token}))
+
+          window.location.href = "/dashboard";
+
             }
         })
         .catch((error) => {

@@ -50,7 +50,7 @@ export default function ForgotPassword() {
             setIsErrorDialogOpen(true);
         });
     }
-
+ 
   return (
     <div className="contents">
       <div className="signInform">
