@@ -1,17 +1,35 @@
-import React from "react";
+import React, {useState, useEffect}  from "react";
 import Linechart from "./linechart";
 import { BarChart } from "@mui/x-charts/BarChart";
 import "../assets/css/dashboardThirdSection.css";
 import { ChartContainer, BarPlot } from "@mui/x-charts";
+import axios from "axios";
+import GraphComponent from "./graphComponent";
 
 export default function DashboardThirdSection() {
+
+  const [data, setData] = React.useState([]);
+  const [areaData, setAreaData] = useState([]);
+  const [minPrice, setMinPrice] = useState([]);
+  const [maxPrice, setMaxPrice] = useState([]);
+  const [avgPrice, setAvgPrice] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://127.0.0.1:8000/dashboard/paaa/").then((res) => {
+      setData(res.data);
+      // console.log(`data is ${data}`);
+    }
+    );
+  }, []);
+
   return (
     <div className="third-section-container">
       <div className="linechart">
+        {/* <GraphComponent/> */}
         <Linechart />
       </div>
       <div className="barchart-container">
-        <BarChart
+        {/* <BarChart
           colors={["#fff"]}
           sx={{
             borderRadius: "20px",
@@ -79,17 +97,20 @@ export default function DashboardThirdSection() {
 
               categoryGapRatio: 0.9,
               barGapRatio: 0.1,
+              
             },
           ]}
           series={[
-            { data: [100, 400, 500, 256, 123, 459, 354, 257, 482] },
+            { data: [100, 400, 700, 256, 123, 459, 354, 257, 482] },
+            
 
             // { data: [1, 6, 3] },
             // { data: [2, 5, 6] },
           ]}
           //   width={500}
           height={300}
-        />
+        /> */}
+        <GraphComponent/>
  
         <h1>Active Users</h1>
         <p>

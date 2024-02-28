@@ -131,7 +131,7 @@ export default function ProfileSettings() {
             value={name}
           />
           <label htmlFor="email">Email:</label>
-          <input type="text" name="email" id="email" readOnly />
+          <input type="text" name="email" id="email" value={email} readOnly />
           <label htmlFor="contact">Contact Info:</label>
           <input
             type="tel"

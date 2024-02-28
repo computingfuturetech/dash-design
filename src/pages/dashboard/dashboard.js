@@ -44,7 +44,7 @@ export default function Dashboard() {
       <div className="top-nav">
         <DashboardNav />
       </div>
-      <div className="topInfo-section">
+      {/* <div className="topInfo-section">
         <ul>
           <li>
             <DashboardTopInfo
@@ -375,16 +375,16 @@ export default function Dashboard() {
             />
           </li>
         </ul>
-      </div>
-      <div className="second-section">
+      </div> */}
+      {/* <div className="second-section">
         <DashboardSecondSection />
-      </div>
+      </div> */}
       <div className="third-section">
         <DashboardThirdSection/>
       </div>
-      <div className="last-section">
+      {/* <div className="last-section">
         <DashboardLastSection/>
-      </div>
+      </div> */}
     </div>
   );
 }
