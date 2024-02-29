@@ -1,16 +1,93 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../assets/css/profileSettings.css";
 import { useState } from "react";
-
+import axios from "axios";
 
 export default function ProfileSettings() {
-  const [file, setFile] = useState('https://via.placeholder.com/150');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [image, setImage] = useState();
+  const [bio, setBio] = useState("");
+  const [file, setFile] = useState("");
+
   const handleFileChange = (e) => {
     e.preventDefault();
-    console.log(e.target.files[0]);
-    if(e.target.files[0] === undefined) return;
+    // console.log(e.target.files[0]);
+    if (e.target.files[0] === undefined) return;
     setFile(URL.createObjectURL(e.target.files[0]));
+    setImage(e.target.files[0]);
+
+    console.log(`file is ${e.target.files[0]}`);
   };
+
+  const handleNameChange = (e) => {
+    e.preventDefault();
+    setName(e.target.value);
+  };
+  const handleContactChange = (e) => {
+    e.preventDefault();
+    setContact(e.target.value);
+  };
+  const handleBioChange = (e) => {
+    e.preventDefault();
+    setBio(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const jwt = JSON.parse(localStorage.getItem("login"));
+    const token = jwt.token;
+    const data = new FormData();
+    data.append("first_name", name);
+    data.append("phone", contact);
+    data.append("bio", bio);
+    data.append("image", image);
+    
+    console.log(token);
+
+    const config = {
+      headers: {
+        Authorization: `JWT ${token}`,
+      },
+    };
+    axios
+      .post(
+        "http://127.0.0.1:8000/user/update/",
+        data,
+        config
+      )
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
+  useEffect(() => {
+    const jwt = JSON.parse(localStorage.getItem("login"));
+    const token = jwt.token;
+    console.log(token);
+
+    const config = {
+      headers: {
+        Authorization: `JWT ${token}`,
+      },
+    };
+    axios.post("http://127.0.0.1:8000/user/update/", {}, config).then((res) => {
+      // console.log(res);
+      setName(res.data.first_name);
+      if (res.data.image == null) {
+        console.log(`image null: ${res.data.image}`);
+      } else {
+        setFile(`http://127.0.0.1:8000/${res.data.image}`);
+        console.log(`image: ${res.data.image}`);
+        console.log(`file ${file}`)
+      }
+      setContact(res.data.phone);
+      setBio(res.data.bio);
+      setEmail(res.data.email);
+      console.log(`email: ${res.data.email}`);
+    });
+  }, []);
 
   return (
     <div className="profile-settings-container">
@@ -30,7 +107,7 @@ export default function ProfileSettings() {
                 </label>
 
                 <input
-                onChange={handleFileChange}
+                  onChange={handleFileChange}
                   type="file"
                   name="file-input"
                   id="file-input"
@@ -40,18 +117,41 @@ export default function ProfileSettings() {
             </div>
           </div>
           {/* <button>Change Profile Picture</button> */}
-          <button className="update">UPDATE</button>
+          <button onClick={handleSubmit} className="update">
+            UPDATE
+          </button>
         </div>
         <div className="right">
           <label htmlFor="name">Name:</label>
-          <input type="text" name="name" id="name" />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            onChange={handleNameChange}
+            value={name}
+          />
           <label htmlFor="email">Email:</label>
-          <input type="text" name="email" id="email" readOnly />
+          <input type="text" name="email" id="email" value={email} readOnly />
           <label htmlFor="contact">Contact Info:</label>
-          <input type="tel" name="contact" id="contact" />
+          <input
+            type="tel"
+            name="contact"
+            id="contact"
+            onChange={handleContactChange}
+            value={contact}
+          />
           <label htmlFor="bio">Bio:</label>
-          <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
-          <button className="update">UPDATE</button>
+          <textarea
+            name="bio"
+            id="bio"
+            cols="30"
+            rows="10"
+            onChange={handleBioChange}
+            value={bio}
+          ></textarea>
+          <button onClick={handleSubmit} className="update">
+            UPDATE
+          </button>
         </div>
       </div>
     </div>

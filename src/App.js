@@ -52,6 +52,7 @@ function App() {
           <Route path="*" element={<Dashboard />}></Route>
           <Route path="/forgotPassword" element={<SignUp isForgot={true}/>}></Route>
           <Route path="/forgotPassword/verify" element={<SignUp isverify={true}/>}></Route>
+          <Route path="/login/verify" element={<SignUp isloginverify={true}/>}></Route>
           <Route path="/changePassword" element={<SignUp isChange={true}/>}></Route>
         </Routes>
         </Router>

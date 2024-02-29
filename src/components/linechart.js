@@ -92,7 +92,7 @@ export default function Linechart() {
   const months = data.map((entry) => entry.month);
   return (
     <div className="line-chart-container">
-      <svg width="0" height="0" style={{ position: "absolute" }}>
+      {/* <svg width="0" height="0" style={{ position: "absolute" }}>
         <defs>
           <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop
@@ -105,7 +105,7 @@ export default function Linechart() {
             />
           </linearGradient>
         </defs>
-      </svg>
+      </svg> */}
       <LineChart
         className="line-chart"
         width={1000}
@@ -164,14 +164,14 @@ export default function Linechart() {
           {
             curve: "monotoneX",
             data: data.map((entry) => entry.value1),
-            area: true,
+            // area: true,
             fill: "url(#gradient1)", // Reference the linear gradient
             showMark: false,
           },
           {
             curve: "monotoneX",
             data: data.map((entry) => entry.value2),
-            area: true,
+            // area: true,
             fill: "url(#gradient1)", // Reference the linear gradient
             showMark: false,
           },

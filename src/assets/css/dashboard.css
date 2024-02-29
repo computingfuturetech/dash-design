@@ -24,7 +24,9 @@
         /* width: 15%; */
         /* background-color: aliceblue; */
     /* } */
-    
+    .top-nav{
+        height: 60px;
+    }
     .topInfo-section{
         margin-left: 270px;
         width: 85%;

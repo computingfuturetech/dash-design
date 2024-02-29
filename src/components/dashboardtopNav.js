@@ -1,17 +1,15 @@
 import React from "react";
 import "../assets/css/dashboardTopNav.css";
-import {Link} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 export default function DashboardTopNav(props) {
-  // const handleSignOut = () => {
-  //   localStorage.removeItem('login');
-    
-  // }
+  const handleSignOut = () => {
+    localStorage.removeItem("login");
+  };
   return (
     <div className="topNav-container">
       {/* <div className="left"> */}
-        {/* <ul>
+      {/* <ul>
           <li>
             <a href="/">Pages </a>
           </li>
@@ -22,10 +20,14 @@ export default function DashboardTopNav(props) {
         <h1>{props.page}</h1> */}
       {/* </div> */}
       <div className="right">
-        <input type="search" name="search" id="search" aria-placeholder="" placeholder="Type here..."/>
-        <Link to="/signIn" className="user" 
-        // onClick={handleSignOut()}
-        >
+        <input
+          type="search"
+          name="search"
+          id="search"
+          aria-placeholder=""
+          placeholder="Type here..."
+        />
+        <Link to={"/signIn"} className="user" onClick={handleSignOut}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="13"

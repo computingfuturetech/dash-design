@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { styled } from "@mui/material/styles";
 import "../assets/css/alertDialog.css";
 
-export default function AlertDialog({ open, onClose, errorMessage }) {
+export default function AlertDialog({ open, onClose, errorMessage }) { 
   return (
     <Dialog
       open={open}
@@ -17,7 +17,7 @@ export default function AlertDialog({ open, onClose, errorMessage }) {
       aria-describedby="alert-dialog-description"
         className="alert-dialog"
         PaperProps={{sx: {borderRadius: "20px",
-        backgroundColor: "rgb(255, 255, 255, 0.7)",
+        backgroundColor: "rgba(45, 89, 235, 0.8);",
         backdropFilter: "blur(10px)",
         boxShadow: "0 0 10px 0 rgb(0 0 0 / 10%)",
         padding: "20px 40px",

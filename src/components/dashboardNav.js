@@ -2,9 +2,8 @@ import React from "react";
 import "../assets/css/dashboardNav.css";
 import logo from "../assets/images/Logo.png";
 import { Link } from "react-router-dom";
- 
+
 export default function DashboardNav() {
-  
   return (
     <div className="dashboardNav">
       <nav>

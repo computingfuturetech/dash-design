@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../assets/css/accountSettings.css";
 import SwitchButton from "./switchButton";
 import { useState } from "react";
@@ -15,6 +15,17 @@ export default function AccountSettings() {
   const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [button, setButton] = useState("Change Password");
+  const [twoFactorAuth, setTwoFactorAuth] = useState(false);
+  const [email, setEmail] = useState("");
+  const [authButton, setAuthButton] = useState("Enable");
+  const [phone, setPhone] = useState("");
+  const [emailAria, setEmailAria] = useState(true);
+  const [phoneAria, setPhoneAria] = useState(true);
+
+  const emailRegex = new RegExp(
+    /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+  );
+
   const passwordRegex = new RegExp(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
   );
@@ -76,7 +87,7 @@ export default function AccountSettings() {
         <ReactLoading height={40} width={40} type={"cylon"} color={"#fff"} />
       );
 
-    //   console.log(data);
+      //   console.log(data);
       axios
         .put("http://127.0.0.1:8000/user/cpassword/", data, {
           headers: {
@@ -84,7 +95,7 @@ export default function AccountSettings() {
           },
         })
         .then((response) => {
-        //   console.log(response);
+          //   console.log(response);
           if (response.status === 200) {
             setButton("Change Password");
             setErrorMessage("Password Changed Successfully");
@@ -97,7 +108,7 @@ export default function AccountSettings() {
         .catch((error) => {
           setButton("Change Password");
 
-        //   console.log(`old_password: ${error.response.data.old_password}`);
+          //   console.log(`old_password: ${error.response.data.old_password}`);
           if (error.response.data.old_password != undefined) {
             setErrorMessage(error.response.data.old_password);
           }
@@ -107,6 +118,87 @@ export default function AccountSettings() {
         });
     }
   };
+
+  const handleEmailChange = (e) => {
+    e.preventDefault();
+
+    setEmail(e.target.value);
+    if (emailRegex.test(e.target.value)) {
+      setEmailAria(true);
+    }
+    else{
+      setEmailAria(false);
+    }
+    console.log(`email is ${email}`);
+
+  };
+
+  const handleTwoFactorAuth = (e) => {
+    e.preventDefault();
+    let check = 'True'
+    if(twoFactorAuth){
+      check = 'False'
+    }else{
+      check = 'True'
+    }
+
+    const data = {
+      sec_email: email,
+      twofa: check,
+    };
+    console.log(data);
+    const jwt = JSON.parse(localStorage.getItem("login"));
+    const token = jwt.token;
+    const config = {
+      headers: {
+        Authorization: `JWT ${token}`,
+      },
+    };
+    axios
+      .post("http://127.0.0.1:8000/user/twofa/", data, config)
+      .then((response) => {
+        console.log(response);
+        if(response.data.twofa){
+          setEmail(response.data.sec_email);
+          setAuthButton('Disable');
+          setErrorMessage("Two Factor Authentication Enabled");
+          setIsErrorDialogOpen(true);
+        }
+        else{
+          setEmail('');
+          setAuthButton('Enable');
+          setErrorMessage("Two Factor Authentication Disabled");
+          setIsErrorDialogOpen(true);
+        }
+      })
+      .catch((error) => {
+        setErrorMessage(error.response.data.error);;
+        setIsErrorDialogOpen(true);
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    const jwt = JSON.parse(localStorage.getItem("login"));
+    const token = jwt.token;
+    const config = {
+      headers: {
+        Authorization: `JWT ${token}`,
+      },
+    };
+    axios
+      .post("http://127.0.0.1:8000/user/twofa/",{}, config)
+      .then((response) => {
+        if(response.data.twofa){
+          setAuthButton('Disable');
+        }else{
+          setAuthButton('Enable');
+        }
+        setTwoFactorAuth(response.data.twofa);
+      })
+      .catch((error) => {
+      });
+  });
 
   return (
     <div className="account-settings-main-container">
@@ -171,9 +263,12 @@ export default function AccountSettings() {
           </p>
           <div className="two-factor-auth-container">
             <form action="">
-              <input type="email" name="email" id="email" placeholder="Email" />
+              <input type="email" name="email" id="email" onChange={handleEmailChange} value={email} placeholder="Email" />
+              {emailAria ? null : (
+            <div className="error">
+            <p className="errorp">Invalid email</p></div>)}
               <input type="tel" name="phone" id="phone" placeholder="Phone" />
-              <button>Enable</button>
+              <button onClick={handleTwoFactorAuth}>{authButton}</button>
             </form>
           </div>
         </div>
@@ -206,6 +301,7 @@ export default function AccountSettings() {
         errorMessage={errorMessage}
         onClose={() => setIsErrorDialogOpen(false)}
       />
+
     </div>
   );
 }

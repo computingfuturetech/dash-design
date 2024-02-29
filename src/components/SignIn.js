@@ -59,6 +59,10 @@ export default function SignIn(props) {
 
           console.log(localStorage.getItem('login'));
           window.location.href = "/dashboard";
+        }else if(response.status === 201){
+          localStorage.setItem("email", email.toLowerCase());
+          window.location.href = "/login/verify";
+
         }
       })
       .catch((error) => {
