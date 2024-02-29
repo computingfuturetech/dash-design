@@ -16,7 +16,7 @@
     nav {
         width: 200px;
         height: 92vh;
-        /* height: fit-content; */ 
+        /* height: fit-content; */
         border: none;
         display: flex;
         flex-direction: column;
@@ -31,7 +31,7 @@
         backdrop-filter: blur(60px);
         padding: 20px;
         margin-top: 0px;
-        
+
 
 
         .logo {
@@ -165,38 +165,39 @@
 
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 900px) {
     .dashboardNav {
         /* display: none; */
         width: 160px;
 
-        nav{
+        nav {
             width: 160px;
         }
     }
-    
+
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
     .dashboardNav {
         /* display: none; */
         width: 100px;
 
-        nav{
+        nav {
             width: 140px;
         }
     }
-    
+
 }
-@media screen and (max-width: 500px){
+
+@media screen and (max-width: 500px) {
     .dashboardNav {
         display: none;
         width: 100px;
 
-        nav{
+        nav {
             /* display: none; */
             width: 100px;
         }
     }
-    
+
 }

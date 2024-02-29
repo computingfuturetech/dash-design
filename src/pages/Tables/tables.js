@@ -19,99 +19,83 @@ export default function Tables() {
   const [propertyDetails, setPropertyDetails] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalItems, setTotalItems] = useState(10); // Number of items to initially display
   const [loadNext, setLoadNext] = useState(false);
- 
-
-  const showMore = () => {
-
-    setTotalItems(totalItems + 10); // Increment totalItems by 10
-    console.log("Total Items after setting:", totalItems);
-    if(totalItems>=90){
-      console.log("Total Items after checking:", totalItems);
-      setLoadNext(!loadNext);
-      console.log("Load Next:", loadNext);
-    }
-  };
+  
 
   useEffect(() => {
-    axios
-      .get(
-        `http://127.0.0.1:8000/dashboard/property_detail/?page=${currentPage}`
-      )
-      .then((res) => {
-        setPropertyDetails(res.data.results);
-        setTotalPages(res.data.total_pages);
-        setPropertyDetails(res.data.apartments);
-        console.log("Property Details:", propertyDetails);
+    const checkAuthentication = () => {
+      console.log("Checking authentication");
+      if (!localStorage.getItem("login")) {
+        window.location.href = "/signIn";
+        return;
+      }
 
-        console.log("Total Pages:", totalPages);
-        console.log(res.data);
-        setIsLoading(false);
-      });
-  }, []);
+      const jwt = JSON.parse(localStorage.getItem("login")).token;
+      const jwtpayload = JSON.parse(window.atob(jwt.split(".")[1]));
 
-  const nextPageHandle = () => {
-    console.log("Current Page:", currentPage);
-    console.log("Total Pages:", totalPages);
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-      axios
-        .get(
-          `http://127.0.0.1:8000/dashboard/property_detail/?page=${currentPage}`
-        )
-        .then((res) => {
-          // setPropertyDetails(res.data.results);
-          // setPropertyDetails(res.data.apartments);
-          setPropertyDetails((prevDetails) => [...prevDetails, ...res.data.results]);
-          console.log("Property Details:", propertyDetails);
-
-          console.log("Total Pages:", totalPages);
-          console.log(res.data);
-          setIsLoading(false);
-        });
-    }
-  };
-
-  useEffect(() => {
-    if (localStorage.getItem("login")) {
-      setIsLoading(false);
-      const jwt = JSON.parse(localStorage.getItem("login"));
-      const token = jwt.token;
-      const jwtpayload = JSON.parse(window.atob(token.split(".")[1]));
       if (jwtpayload.exp * 1000 < Date.now()) {
         console.log("Token expired");
         localStorage.removeItem("login");
         window.location.href = "/signIn";
-        setIsLoading(false);
+        return;
       }
-    } else {
-      window.location.href = "/signIn";
-      setIsLoading(false);
+
+      // setIsLoading(false);
+    };
+
+    checkAuthentication();
+  }, []);
+
+  useEffect(() => {
+    fetchNextPageData();
+  }, [currentPage]);
+
+  useEffect(() => {
+    if (loadNext && !isLoading) {
+      fetchNextPageData();
     }
-  }, [localStorage.getItem("login")]);
+  }, [loadNext, isLoading]);
+
+  const fetchNextPageData = () => {
+    axios
+      .get(`http://127.0.0.1:8000/dashboard/property_detail/?page=${currentPage}`)
+      .then((res) => {
+        if (res.data.apartments && Array.isArray(res.data.apartments)) {
+          setPropertyDetails((prevDetails) => [...prevDetails, ...res.data.apartments]);
+          setTotalPages(res.data.total_pages);
+          setIsLoading(false);
+        } else {
+          console.error("Invalid data format or missing results:", res.data);
+          setIsLoading(false);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      });
+  };
 
   const handleScroll = () => {
-    console.log("Total Items:", loadNext);
-    if(loadNext||totalItems>=90){
-      console.log("Total Items after checking:", totalItems);
-      setTotalItems(0);
-    const bottom =
-      Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
-    if (bottom && currentPage < totalPages) {
-      // setCurrentPage(currentPage + 1);
-      nextPageHandle();
-      // showMore();
+    const isBottom =
+      window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight;
+    if (isBottom && currentPage < totalPages && !isLoading) {
+      setCurrentPage((prevPage) => prevPage + 1);
     }
-  }
   };
 
   useEffect(() => {
+    if (isLoading) return;
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [currentPage, totalPages]);
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (!isLoading && currentPage >= totalPages) {
+      setLoadNext(true);
+    }
+  }, [isLoading, currentPage, totalPages]);
   return isLoading ? (
     <Loading />
   ) : (
@@ -123,8 +107,6 @@ export default function Tables() {
         <DashboardNav />
       </div>
       <div className="table-top">
-        {/* <button onClick={nextPageHandle}>NextPage</button> */}
-
         <div className="table-content">
           <div className="heading">
             <h1>Property Details</h1>
@@ -139,84 +121,20 @@ export default function Tables() {
           </div>
           <hr />
 
-          {propertyDetails.slice(0,totalItems).map((property, index) => {
+          {propertyDetails.map((property, index) => {
             let color = index % 2 === 0 ? "#021A3F" : "#060F2E";
-
+            let cardColor = index % 2 === 0 ? "#060F2E" : "#02193E";
 
             return (
               <AuthorDetails
                 // img={property.image}
                 property={property}
-                color = {color}
-                
+                color={color}
+                cardColor={cardColor}
               />
             );
           })}
-           {/* Show More button */}
-        {totalItems < propertyDetails.length && (
-          <div className="show-more-button">
-            <button onClick={showMore}>Show More</button>
-          </div>
-        )}
-          {/* <AuthorDetails
-            img={img1}
-            name="Esthera Jackson"
-            email="eshtra@simmmple.com"
-            designation="Manager"
-            at="Organization"
-            status="Online"
-            employed="14/06/21"
-          />
-          <hr />
-          <AuthorDetails
-            img={img2}
-            name="Alexa Liras"
-            email="alexa@simmmple.com"
-            designation="Programmer"
-            at="Developer"
-            status="Online"
-            employed="14/06/21"
-          />
-          <hr />
-          <AuthorDetails
-            img={img3}
-            name="Laurent Micheal"
-            email="laurent@simmmple.com"
-            designation="Executive"
-            at="Projects"
-            status="Online"
-            employed="14/06/21"
-          />
-          <hr />{" "}
-          <AuthorDetails
-            img={img4}
-            name="Freduardo Hill"
-            email="freduardo@simmmple.com"
-            designation="Manager"
-            at="Organization"
-            status="Online"
-            employed="14/06/21"
-          />
-          <hr />
-          <AuthorDetails
-            img={img5}
-            name="Daniel Thomas"
-            email="daniel@simmmple.com"
-            designation="Programmer"
-            at="Developer"
-            status="Online"
-            employed="14/06/21"
-          />
-          <hr />
-          <AuthorDetails
-            img={img6}
-            name="Mark Willson"
-            email="Mark@simmmple.com"
-            designation="Designer"
-            at="UI/UX Design"
-            status="Online"
-            employed="14/06/21"
-          /> */}
+          {loadNext && <p>All data loaded</p>}
         </div>
       </div>
       {/* <div className="bottom">

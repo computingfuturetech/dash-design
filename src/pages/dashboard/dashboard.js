@@ -13,7 +13,6 @@ export default function Dashboard() {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  
   useEffect(() => {
     // setIsLoading1(false);
     if (localStorage.getItem("login")) {
@@ -33,6 +32,10 @@ export default function Dashboard() {
       window.location.href = "/signIn";
     }
   },[localStorage.getItem("login")])
+
+
+
+
 
   
   return (

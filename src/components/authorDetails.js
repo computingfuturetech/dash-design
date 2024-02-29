@@ -1,7 +1,7 @@
 import React from "react";
 import { useCollapse } from "react-collapsed";
 import { useEffect, useState } from "react";
-import img2 from "../assets/images/img2.png";
+import img2 from "../assets/images/img3.png";
 import "../assets/css/propertyContent.css";
 
 export default function AuthorDetails(props) {
@@ -10,8 +10,8 @@ export default function AuthorDetails(props) {
   const [validatedDetails, setValidatedDetails] = useState([]);
   const [projectDetails, setProjectDetails] = useState([]);
   const [propertyDetails, setPropertyDetails] = useState([]);
-  const [color, setColor] = useState("white");
-
+  const [color, setColor] = useState("#02193E");
+  const [cardColor, setCardColor] = useState("#fff");
   useEffect(() => {
     setColor(props.color);
     console.log("Props:", color);
@@ -20,6 +20,7 @@ export default function AuthorDetails(props) {
     setValidatedDetails(props.property.validated_information);
     setProjectDetails(props.property.project_information);
     setPropertyDetails(props.property.property_detail);
+    setCardColor((cardColor) => props.cardColor);
   }, []);
 
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
@@ -58,16 +59,24 @@ export default function AuthorDetails(props) {
           </h1>
         </div>
         <div className="employed">
-          <h1>{}</h1>
+          <h1 style={{ width: "200px" }}>{propertyDetails.added_on}</h1>
         </div>
         <div className="employed">
           {
-            <h1 style={{width:'100px'}}>{projectDetails.completion =='nan'?'100%': projectDetails.completion}</h1>}
+            <h1 style={{ width: "100px" }}>
+              {projectDetails.completion == "nan"
+                ? "100%"
+                : projectDetails.completion}
+            </h1>
+          }
         </div>
       </div>
       <div {...getCollapseProps()}>
         <div className="property-content">
-          <div className="appartment-details">
+          <div
+            className="appartment-details"
+            style={{ backgroundColor: cardColor }}
+          >
             <h1>Appartment Details</h1>
             <p>
               Rooms: <span>{appartmentDetails.rooms}</span>
@@ -87,7 +96,10 @@ export default function AuthorDetails(props) {
               </span>
             </p>
           </div>
-          <div className="building-details">
+          <div
+            className="building-details"
+            style={{ backgroundColor: cardColor }}
+          >
             <h1>Building Details</h1>
             <p>
               Building Name: <span>{buildingDetails.building_name}</span>
@@ -97,7 +109,8 @@ export default function AuthorDetails(props) {
               <span>{parseInt(buildingDetails.year_of_completion)}</span>
             </p>
             <p>
-              Total Floors: <span>{parseInt(buildingDetails.total_floors)}</span>
+              Total Floors:{" "}
+              <span>{parseInt(buildingDetails.total_floors)}</span>
             </p>
             <p>
               Swimming Pools: <span>{buildingDetails.swimming_pools}</span>
@@ -110,7 +123,10 @@ export default function AuthorDetails(props) {
               Elevators: <span>{buildingDetails.elevators}</span>
             </p>
           </div>
-          <div className="validated-details">
+          <div
+            className="validated-details"
+            style={{ backgroundColor: cardColor }}
+          >
             <h1>Project Details</h1>
             <p>
               Project Name: <span>{projectDetails.project_name}</span>
